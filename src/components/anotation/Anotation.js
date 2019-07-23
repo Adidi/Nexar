@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {getElementCoordinate} from '../../util/dom'
 import './Annotation.scss'
 
 const Annotation = ({
@@ -11,10 +12,8 @@ const Annotation = ({
     removeAnnotation,
 }) => {
     const onMouseDown = e => {
-        const boundingRect = e.target.getBoundingClientRect()
-        const shiftX = e.clientX - boundingRect.left
-        const shiftY = e.clientY - boundingRect.top
-        startMoving(data.id, shiftX, shiftY)
+        const {x, y} = getElementCoordinate(e)
+        startMoving(data.id, x, y)
     }
 
     return (

@@ -41,12 +41,6 @@ class App extends React.Component {
         img.src = imageSrc
     }
 
-    onClickNew = e => {
-        this.setState({
-            mode: 'edit',
-        })
-    }
-
     updatePosition = (id, x, y) => {
         this.setState(state => {
             const {annotations} = state
